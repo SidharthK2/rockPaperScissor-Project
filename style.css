@@ -49,7 +49,7 @@ body {
 }
 
 .mid {
-  display: flex;
+  display: none;
   margin-top: 100px;
   align-items: center;
   justify-content: center;
@@ -65,4 +65,14 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 12px;
+}
+
+.mid.visible {
+    display: flex;
+    animation: fade 2s;
+}
+
+@keyframes fade {
+  0%,100% { opacity: 0 }
+  50% { opacity: 1 }
 }
