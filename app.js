@@ -24,10 +24,10 @@ const updateUI = (condition) => {
   if (condition === "win") {
     playerScore += 1;
     gameText.innerHTML = "You win!";
-  } else if (condition === "lose...") {
-    computerScore = +1;
+  } else if (condition === "lose") {
+    computerScore += 1;
     gameText.innerHTML = "You Lose";
-  } else {
+  } else if (condition === "tie") {
     gameText.innerHTML = "It's a Tie!";
   }
 };
@@ -62,7 +62,17 @@ const getWinner = (playerThrow, computerThrow) => {
 
 const getScores = () => {
   const scores = document.querySelector("h4");
-  scores.innerHTML = `Your Score: ${playerScore} | Computer Score: ${computerScore}`;
+  scores.innerHTML = `Your Score: ${playerScore}  | Computer Score: ${computerScore}`;
+};
+
+const reset = () => {
+  playerScore = 0;
+  computerScore = 0;
+  const scores = document.querySelector("h4");
+  scores.innerHTML = "...";
+  gameText.innerHTML = "Take your pick!"
+
+  toggleVisiblity();
 };
 
 const onThrow = (move) => {
@@ -72,9 +82,11 @@ const onThrow = (move) => {
   getScores();
   if (playerScore === 5) {
     alert("YOU WON!!");
+    reset();
   }
   if (computerScore === 5) {
     alert("YOU LOSE...");
+    reset();
   }
 };
 

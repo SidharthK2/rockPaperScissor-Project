@@ -78,11 +78,7 @@ body {
   gap: 12px;
 }
 
-.mid.visible {
-  display: flex;
-  animation: fade 2s;
-}
-
+.mid.visible,
 .bottom.visible {
   display: flex;
   animation: fade 2s;
